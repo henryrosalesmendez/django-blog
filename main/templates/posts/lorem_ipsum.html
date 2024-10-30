@@ -1,0 +1,59 @@
+{% extends "main/base.html" %}
+{% load static %} 
+{% block title %}Henry's posts{% endblock %}
+{% block postdescr %}A list of post ordered by year {% endblock %}
+{% block content %}
+
+
+    <!-- Article content -->
+    <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+      <meta itemprop="headline" content="{{article.title}}">
+      <meta itemprop="description" content="A variety of common markup showing how the theme styles them.">
+      <meta itemprop="datePublished" content="2013-01-11T00:00:00-05:00">
+
+      <!-- Article content wrapper -->
+      <div class="page__inner-wrap">
+        <header>
+          <!-- title -->
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://mmistakes.github.io/minimal-mistakes/markup/markup-html-tags-and-formatting/" itemprop="url">{{article.title}}</a>
+          </h1>
+
+          <!-- time -->
+          <p class="page__meta">
+            <span class="page__meta-readtime"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i>
+              {{ article.created_at|date }}</span>
+            </span>
+          </p>
+          <p class="page__taxonomy", style="font-size: .75em;">
+            <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+            {% if article.tags.exists %}
+              <span itemprop="keywords">
+                {% for tag in article.tags.all %}
+                  <a href="/article/tag/{{ tag }}" class="page__taxonomy-item p-category" rel="tag">{{ tag }}</a><span class="sep">, </span>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </p>
+        </header>
+
+
+        <section class="page__content" itemprop="text">
+
+          <!-- content -->
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Volutpat odio facilisis mauris sit amet massa. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Mi eget mauris pharetra et. Non tellus orci ac auctor augue. Elit at imperdiet dui accumsan sit. Ornare arcu dui vivamus arcu felis. Egestas integer eget aliquet nibh praesent. In hac habitasse platea dictumst quisque sagittis purus. Pulvinar elementum integer enim neque volutpat ac.</p>
+          <p>Senectus et netus et malesuada. Nunc pulvinar sapien et ligula ullamcorper malesuada proin. Neque convallis a cras semper auctor. Libero id faucibus nisl tincidunt eget. Leo a diam sollicitudin tempor id. A lacus vestibulum sed arcu non odio euismod lacinia. In tellus integer feugiat scelerisque. Feugiat in fermentum posuere urna nec tincidunt praesent. Porttitor rhoncus dolor purus non enim praesent elementum facilisis. Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus. Ipsum faucibus vitae aliquet nec ullamcorper sit amet risus. Et malesuada fames ac turpis egestas sed. Sit amet nisl suscipit adipiscing bibendum est ultricies. Arcu ac tortor dignissim convallis aenean et tortor at. Pretium viverra suspendisse potenti nullam ac tortor vitae purus. Eros donec ac odio tempor orci dapibus ultrices. Elementum nibh tellus molestie nunc. Et magnis dis parturient montes nascetur. Est placerat in egestas erat imperdiet. Consequat interdum varius sit amet mattis vulputate enim.</p>
+          <p>Sit amet nulla facilisi morbi tempus. Nulla facilisi cras fermentum odio eu. Etiam erat velit scelerisque in dictum non consectetur a erat. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere. Ut sem nulla pharetra diam. Fames ac turpis egestas maecenas. Bibendum neque egestas congue quisque egestas diam. Laoreet id donec ultrices tincidunt arcu non sodales neque. Eget felis eget nunc lobortis mattis aliquam faucibus purus. Faucibus interdum posuere lorem ipsum dolor sit.</p>
+
+        </section>
+        <!-- end content -->
+
+      </div>
+      <!-- End article content wrapper -->
+
+      <div class="page__comments"></div>
+
+    </article>
+    <!-- End Article content -->
+
+{% endblock %}

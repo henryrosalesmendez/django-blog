@@ -1,0 +1,135 @@
+<!doctype html>
+{% load static %} 
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- begin _includes/seo.html -->
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block postdescr %} {% endblock %}">
+    <meta name="author" content="Marcus Tullius">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+      window.enable_copy_code_button = true;
+    </script>
+
+    <!-- For all browsers -->
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+  
+  </head>
+
+  <body class="layout--posts" dir="ltr">
+    <nav class="skip-links">
+      <ul>
+        <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+        <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+        <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+      </ul>
+    </nav>
+
+
+    <div class="masthead">
+      <div class="masthead__inner-wrap">
+        <div class="masthead__menu">
+          <nav id="site-nav" class="greedy-nav">
+
+            <a class="site-title" href="/">
+              Go back
+              <span class="site-subtitle">to all post list</span>
+            </a>
+            <ul class="visible-links">
+              <!--<li class="masthead__menu-item"><a href="/minimal-mistakes/docs/quick-start-guide/">Quick-Start Guide</a></li>
+              <li class="masthead__menu-item"><a href="/minimal-mistakes/about/">About</a></li>
+              <li class="masthead__menu-item"><a href="/minimal-mistakes/year-archive/">Sample Posts</a></li>
+              <li class="masthead__menu-item"><a href="/minimal-mistakes/collection-archive/">Sample Collections</a></li>
+              <li class="masthead__menu-item"><a href="/minimal-mistakes/terms/">Terms &amp; Privacy Policy</a></li>-->
+            </ul>
+
+            <!--<button class="search__toggle" type="button">
+              <span class="visually-hidden">Toggle search</span>
+              <i class="fas fa-search"></i>
+            </button>-->
+
+            <button class="greedy-nav__toggle hidden" type="button">
+              <span class="visually-hidden">Toggle menu</span>
+              <div class="navicon"></div>
+            </button>
+            <ul class="hidden-links hidden"></ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- start initial-content snippets -->
+    <div class="initial-content">
+
+      <!-- start autor box -->  
+      <div id="main" role="main">
+        <div class="sidebar sticky">
+          <div itemscope itemtype="https://schema.org/Person" class="h-card">
+            <div class="author__avatar">
+              <a href="https://en.wikipedia.org/wiki/Cicero">
+                <img src="{% static 'main/img/profile.jpg' %}" alt="Marcus Tullius" itemprop="image" class="u-photo">
+              </a>
+            </div>
+            <div class="author__content">
+            <h3 class="author__name p-name" itemprop="name">
+              <a class="u-url" rel="me" href="https://en.wikipedia.org/wiki/Cicero" itemprop="url">Marcus T. Cicero</a>
+            </h3>
+
+            <div class="author__bio p-note" itemprop="description">
+              <!--<p>Just another <em>boring</em>, <em>tattooed</em>, <em>time traveling</em>, <em>designer</em>.</p>-->
+            </div>
+          </div>
+
+          <div class="author__urls-wrapper">
+            <!--<button class="btn btn--inverse">Follow</button>-->
+            <ul class="author__urls social-icons">
+              <!--<li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+                <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Buffalo, NY</span></li>-->
+              <li><a href="https://en.wikipedia.org/wiki/Cicero" rel="Cicero's homepage" itemprop="sameAs">
+                <i class="fas fa-fw fa-link colored_icon" aria-hidden="true"></i><span class="label">wikipedia</span></a></li>
+              <li><a href="https://x.com/marcus_cicero" rel="Twitter" itemprop="sameAs">
+                <i class="fab fa-fw fa-square-x-twitter colored_icon" aria-hidden="true"></i><span class="label">X</span></a></li>
+              <li><a href="https://github.com/marcus_cicero" rel="Github repositories" itemprop="sameAs">
+                <i class="fa-brands fa-github-square colored_icon" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+              <!--<li><a href="https://instagram.com/marcust" rel="nofollow noopener noreferrer me" itemprop="sameAs">
+                <i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>-->
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- end autor box -->
+
+      <!-- start content-->
+      {% block content %}{% endblock %}
+      <!-- end content -->
+
+    </div>
+    <!-- end initial-content snippets -->
+
+
+    <!-- start custom footer snippets -->
+    <div id="footer" class="page__footer" style="text-align: center;">
+      <footer>        
+        <div class="page__footer-follow">
+          <ul class="social-icons">
+            <li><a href="https://twitter.com/marcust" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square colored_icon" aria-hidden="true"></i> Twitter</a></li>
+            <li><a href="https://github.com/marcust" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github colored_icon" aria-hidden="true"></i> GitHub</a></li>
+            <li><a href="https://instagram.com/marcust" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram colored_icon" aria-hidden="true"></i> Instagram</a></li>
+            <li><a href="/feedhub.com/feed.xml"><i class="fas fa-fw fa-rss-square colored_icon" aria-hidden="true"></i> Feed</a></li>
+          </ul>
+        </div>
+        <!--<div class="page__footer-copyright">&copy; 2024 <a href="https://marcust.github.io">Minimal Mistakes</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>-->
+        <div class="page__footer-copyright"> Template credit for <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+    <!-- end custom footer snippets -->
+
+    <script src="{% static 'main/js/main.js' %}"></script>
+  </body>
+</html>
+

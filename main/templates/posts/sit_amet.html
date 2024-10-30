@@ -1,0 +1,129 @@
+{% extends "main/base.html" %}
+{% load static %} 
+{% block title %}Henry's posts{% endblock %}
+{% block postdescr %}A list of post ordered by year {% endblock %}
+{% block content %}
+
+
+    <!-- Article content -->
+    <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+      <meta itemprop="headline" content="{{article.title}}">
+      <meta itemprop="description" content="A variety of common markup showing how the theme styles them.">
+      <meta itemprop="datePublished" content="2013-01-11T00:00:00-05:00">
+
+      <!-- Article content wrapper -->
+      <div class="page__inner-wrap">
+        <header>
+          <!-- title -->
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://mmistakes.github.io/minimal-mistakes/markup/markup-html-tags-and-formatting/" itemprop="url">{{article.title}}</a>
+          </h1>
+
+          <!-- time -->
+          <p class="page__meta">
+            <span class="page__meta-readtime"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i>
+              {{ article.created_at|date }}</span>
+            </span>
+          </p>
+          <p class="page__taxonomy", style="font-size: .75em;">
+            <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+            {% if article.tags.exists %}
+              <span itemprop="keywords">
+                {% for tag in article.tags.all %}
+                  <a href="/article/tag/{{ tag }}" class="page__taxonomy-item p-category" rel="tag">{{ tag }}</a><span class="sep">, </span>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </p>
+        </header>
+
+
+        <section class="page__content" itemprop="text">
+
+          <!-- table of content -->
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header>
+                <h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+                <ul class="toc__menu">
+                  <li><a href="#header-two">Enim nulla</a>
+                    <ul>
+                      <li><a href="#header-three">Et netus et</a></li>
+                      <li><a href="#tables">Consequat ac felis</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#definition-lists">Turpis egestas</a></li>
+                </ul>
+            </nav>
+          </aside>
+
+          <!-- content -->
+          <p>Sit amet nulla facilisi morbi tempus. Nulla facilisi cras fermentum odio eu. Etiam erat velit scelerisque in dictum non consectetur a erat. </p>
+
+          <!-- -->  
+          <h2 id="header-two">Enim nulla</h2>
+          Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere. Ut sem nulla pharetra diam. Fames ac turpis egestas maecenas. Bibendum neque egestas congue quisque egestas diam. Laoreet id donec ultrices tincidunt arcu non sodales neque. Eget felis eget nunc lobortis mattis aliquam faucibus purus. Faucibus interdum posuere lorem ipsum dolor sit.</p>
+          
+          <!-- -->  
+          <h3 id="header-three">Et netus et</h3>
+          
+            <p>Et netus et malesuada fames ac. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Sodales neque sodales ut etiam sit amet nisl purus in. Maecenas volutpat blandit aliquam etiam. Egestas purus viverra accumsan in nisl. Semper feugiat nibh sed pulvinar proin. Duis convallis convallis tellus id interdum velit laoreet. Ante in nibh mauris cursus mattis molestie. Ut etiam sit amet nisl purus in mollis nunc. Feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper. Tellus at urna condimentum mattis pellentesque id nibh tortor id. Tristique magna sit amet purus gravida quis blandit turpis cursus. </p>
+            <blockquote>
+              <p>Dolor sit amet consectetur adipiscing. Consequat ac felis donec et odio pellentesque diam volutpat. Nunc sed augue lacus viverra vitae congue. Mauris in aliquam sem fringilla ut morbi tincidunt augue. Sit amet luctus venenatis lectus magna fringilla urna porttitor rhoncus.</p>
+            </blockquote>
+
+          <p class="small"><cite>Etiam ac felis</cite> — Duis convallis convallis 1983</p>
+
+          <!-- -->  
+          <h3 id="tables">Consequat ac felis</h3>
+
+          <p>Elementum eu facilisis sed odio morbi quis commodo odio. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Accumsan sit amet nulla facilisi morbi tempus. Suscipit tellus mauris a diam maecenas sed enim ut sem. </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Salary</th>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#">Mauris rhoncus </a></td>
+                <td>$1.00</td>
+                <td>Aenean vel elit scelerisque mauris pellentesque.</td>
+              </tr>
+              <tr>
+                <td><a href="#">Accumsan sit</a></td>
+                <td>$12.00</td>
+                <td>Accumsan sit amet nulla facilisi morbi tempus.</td>
+              </tr>
+              <tr>
+                <td><a href="#">Elementum eu</a></td>
+                <td>$3000.000</td>
+                <td>Elementum eu facilisis sed odio morbi quis commodo.</td>
+              </tr>
+              <tr>
+                <td><a href="#">Nunc sed augue</a></td>
+                <td>$3.55</td>
+                <td>Sodales neque sodales ut etiam sit amet nisl.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- -->  
+          <h2 id="definition-lists">Turpis egestas</h2>
+          <p>Turpis egestas maecenas pharetra convallis posuere. Nibh venenatis cras sed felis eget velit aliquet. Elementum nisi quis eleifend quam adipiscing. Amet cursus sit amet dictum sit amet justo donec enim. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla. Habitant morbi tristique senectus et netus et malesuada. Imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis. Ac turpis egestas maecenas pharetra.</p>
+
+        </section>
+        <!-- end content -->
+
+      </div>
+      <!-- End article content wrapper -->
+
+      <div class="page__comments"></div>
+
+    </article>
+    <!-- End Article content -->
+
+{% endblock %}

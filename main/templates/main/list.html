@@ -1,0 +1,36 @@
+{% extends "main/base.html" %}
+{% load static %} 
+{% block title %}Henry's posts{% endblock %}
+{% block postdescr %}A list of post ordered by year {% endblock %}
+{% block content %}
+      
+      <div class="archive">
+        <h1 id="page-title" class="page__title">{{content_title | safe }}</h1>
+        
+        {% for year, articles in articles_by_year %}
+        <section id="{{year}}" class="taxonomy__section">
+          <h2 class="archive__subtitle">{{year}}</h2>
+          <div class="entries-list">
+
+            {% for article in articles %}
+            <div class="list__item">
+              <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+                <h2 class="archive__item-title no_toc" itemprop="headline">
+                  <a href="{% url 'article:post' article_slug=article.slug %}" rel="permalink">{{article.title}}</a>
+                  {% if not article.public %} <i class="fa fa-eye-slash" style="font-size: medium;" aria-hidden="true"></i>{% endif %}
+                </h2>
+                <p class="page__meta">
+                  <span class="page__meta-readtime"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> &nbsp;{{article.created_at|date}}</span>
+                </p>
+                <p class="archive__item-excerpt" itemprop="description">{{ article.description }}</p>
+              </article>
+            </div>
+            {% endfor %}
+
+          </div>
+          <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+        </section>
+        {% endfor %}
+      </div> 
+      
+{% endblock %}
